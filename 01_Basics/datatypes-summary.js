@@ -48,4 +48,38 @@ console.log( typeof outsidetem);
 //go on ecmascript table of content and search for type of operator then print the table of type here for refrence
 
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// To understand memory and how they work
+
+//two type of memory Stack and Heap
+// stack is used at primitive types ,,, whenever stack memory is used toh jo bhi variable apnai declare kiya hai uska appko ek copy milta hai
+// Heap is used at non-primitive type,,, and whenever memory or object is defined under heap toh waha sai milta hai refrence original value ka
+
+let myytname = "hiteshchoudary.com" //jo jitni bhi primitve values hai wo jayaigie stack kai andar
+
+let anothername = myytname;
+anothername = "chaiaurcode";
+
+console.log(myytname);// hiteshchoudary
+console.log(anothername);// chaiaurcode
+// so here in stack primitive type both of them will have
+// another value
+
+
+let userone = {
+    email : "satakshi@google.com",
+    Upi : "paisamoney@upi"
+}
+
+usertwo = userone;
+usertwo.email = "era@gmail.com"
+
+console.log(userone.email);
+console.log(usertwo.email);
+//but in heap non primitive type both of them will have 
+//same value as they get the original copy
+
+// stack mai copy milta hai
+// heap mai refrence milta hai acutually jo bhi changes
+// and update kartai hai wo original value kai andar he krtai hai
