@@ -63,8 +63,7 @@ anothername = "chaiaurcode";
 
 console.log(myytname);// hiteshchoudary
 console.log(anothername);// chaiaurcode
-// so here in stack primitive type both of them will have
-// another value
+// so here in stack primitive type both of them will have another value
 
 
 let userone = {
@@ -81,5 +80,4 @@ console.log(usertwo.email);
 //same value as they get the original copy
 
 // stack mai copy milta hai
-// heap mai refrence milta hai acutually jo bhi changes
-// and update kartai hai wo original value kai andar he krtai hai
+// heap mai refrence milta hai acutually jo bhi changes and update kartai hai wo original value kai andar he krtai hai
