@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code
+             <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+<!-- console.dir(document) and console.log(document)
+console.dir(documnet)  mai hum bhut sara kam kartai hai
+
+document object model yani kie apka jo document bana hua hai
+wo kis model sai bana hua hai kya uska structure hai page kaisa dikhta hai
+yeh sara samjajh mai a gaya toh hum usai manipulate bhi kar sktai hai
+
+ek aur nayai document kai andar ek naya object create kar sakta hu
+
+event ko samajh lu toh ek button click pai kya hoga kya process hona chaheyai
+web server pai request jayai ya nhi yeh sarai event samjhnai sai hota hai
+
+console.log (document.baseURI) .......... document. likhnai sai bhut sari chizai milti hai uss webpage sai related
+
+dom manipulation
+
+example - 
+document.getElementById('firstHeading') yeh dala mainai browser kai console pai wikipedia ka
+toh iska agaya wo id and class
+
+abb mainai likha
+documrnt.getElementById('firstheading').innerHTML = "<h1> chai aur code</h1>"
+
+ab uss web page pai bredan elch kai nam as a heading kie jagah a jayaiga chai aur code
+
+isi koe kehtai hai dom manipulation
+
+inner.HTML and inner.textcontent and innerContent
+yeh sab ek he vlaue dai rahi hai
+
+contetn and text mai difference kya hai
+
+jaisai span bhi likha hua hai and usmai style mai display mai none
+karkai site paisai wo text hat gaya
+
+but console.log mai jab inner.text kiya toh wo test text wala nhi aya 
+but inner.content mai aya toh iska mtlb content hidden elements bhi dikhata hai
+and agar visual changes karnai hai toh inner.text use kar sktai hai
+
+inner.HTML html tags ko support karta hai and text and content html tags us tag mai support nhi karta hai
+
+document.queryselector(h1), mtlb yeh humai h1 daidaga 
+
+nodelist hai and jo htmlcollection hai wo pure array nhi hai
+
+ul>*li*3 makes 3 lists in ui
+
+nodelist mai bata na parta hai kie konsai element mai 
+apko changes chaheyai
+
+
+jaisai myh1.style.color = "green" ........... this will give five error as the place of the element is not defined like 0 1 2 3
+
+so write myh1[0].style.color = "green" .......it will change the color to green
+
+and it also dosent matter where there is only h1 element or 10 element always give the place of the element 
+it is a common mistaked made by proggramers
+
+
+for each ka loop color kai liye chala saktai hai
+
+templist.foreach(function (l) {
+    l.style.backgroundcolor = 'green'
+})
+
+
+methoda hotai hai nodelist ko array mai convert karnai kai
+basic array mai taki aap usko basic array kie tarah treat kar sako 
+
+but jyada tar ap jab nodelist logai is tarah sai toh kosis karna kie
+foreach loop use karo kyu kyukie wo array nhi hai waha pai math nhi laga saktai hai
+and math kie agar functionality chaheyai toh ussai nodelist sai convert karna paraiga 
+array mai aur array kai upar jo chaheyai ap wo lagaeyai
+
+
+document.getElementByClassName('')
+mujhe sarai element la kai do jiskai andar class konsi lagi do jo hai list-item
+
+ismai foreach nhi chal rha hai as it is a html collection
+agar nodelist kai andar map use karna hai toh kaisai karogai convert karna paraiga array mai
+toh wasai html collecton ko convert karna paraiga array mai
+
+tempclasslist   saved const hai upar valai ka
+abhi likhna hai
+
+Array.from(tempclasslist) _______________ from mtlb mujhe value do jisai convert karna hai array mai 
+
+suppose kareyai merai apss ek list item ayei hai
+10 list item 10 value aye hai database sai aur hitesh sir kahai
+kie yeh 10 item lijiye aur inko jo bhi existing list item hai
+usko update kar dijiye 
+toh hum fatak sai loop chalayiagi
+sarai query selcetor sai select karaigai
+and for each laga kai sari values fill kar daiai  uskai andar
+step by step kitna asan hai
+
+-->

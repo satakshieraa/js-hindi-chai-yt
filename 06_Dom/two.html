@@ -1,0 +1,80 @@
+<!--   in this video we will learn about relations
+   parent child , child child , child parent relatiion
+ 
+   understanding this relations now will later on help us with
+   adding elements in html documents or creating a new elemnet
+
+   apnai database sai query kie
+   database sai value ayie
+   apnai array mai store kie
+   next thing is diplay that on the web page
+    now we do that in buttons or in cards that is a diff thing
+
+    lekin un values ko display kaisai karayai 
+    kaisai nayai values generate karai
+    kaisai nayai element remove karai
+    yeh sara he dom ka khel hai
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+      <!-- this is a comment  div.day*4  give these 4 divs below us automatically generated throgh this shortcut --> 
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________-->
+
+
+
+<script>
+    const parent = document.querySelector('.parent')
+     console.log(parent);
+     console.log(parent.children);// yaha pai milaiga html collection jo kie almost array type property , parent kai andar kuch lagana chahtai hai toh yeh kam ayaigie
+     console.log(parent.children[1]) // accessing any one element ___________ tuesday wala element aya ........... jitnai bhi elements hotai hai unke koe na koe children hotai hai
+     console.log(parent.children[1].innerHTML);// iska text tuesday print hoga
+
+     for (let i = 0; i < parent.children.length; i++) {
+          console.log(parent.children[i].innerHTML);
+        
+     }
+    parent.children[1].style.color = "orange"
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild); ___________ output = pera wo monday ka child div tag kai sathas it it print hogaya hai wasai he lastElementChild mai thursday a jayiga 
+    // agai jakai yeh last and first element js mai bhut kam ayaiga jab aap kisi ko target kar rhai ho element ko uska first element apko laina hai apnai bahar ka parent kar liya hai apko inner tak janai kie jaha jo target ho zuka hai ussi sai first and last element lai liya hai
+    // yeh humai parent sai chil pai move karwa hai wasai he hum child to parent bhi move kar saktai hai
+    
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne); ......... pura monday tag ayaiga
+    // console.log(dayOne.parentElement); .............. wo div tag as parent class aya hai
+    // console.log(dayOne.nextElementSibling); //mtlb ofcourse tuesday he na ayaiga
+
+    console.log("NODES: ", parent.childNodes); //............ output nodelist(9) text div.day fir text div.day fir sai wahi
+</script>
+</html>
+
+<!--node list ya child nodes pura ek complex tree structure provide karta hai
+document object model ismai har ek chiz kie imp. hai ek line break bhi node element hai next line mai jana bhi ek node element hai
+html mai ek line break toh count hota hai uskai bad ap kitnai bhi line break dijiye wo browser pai render nhi hota hai
+har ek element har ek value ka imp. significane hai yaha pai
+
+childnodes acchai sasi samajhna otherwisse agai jakai yahi chiz logo ko bhut confuse kartai hai
+infact apka jitna bhi react bana hua hai na wo isi childnodes kai upar agar ap react ka kabhi github 
+khol kai dekhtai hai na toh waha pai bhut sarai manipulations memory kai andar dalkai chilnodes kai through he kartai hai
+react ka apko open source contirbution karna hai ya behind the scenes karna hai toh woh yahi sai hotai hai
+
+yeh toh treversing hogayaie - kie parent sai child pai and child sai parent pai sibling pai last and first sibling pai aisai
+ thoda samjhtai kie hum program list programitcally kaisai create kartai hai -->
+ 
