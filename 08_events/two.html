@@ -1,0 +1,96 @@
+<!--javascript  - synchronous hai /t single thread now synchronous mtlb 
+
+ek kam execute hoga and uskai bas ek code execute hoga yahi tarika hai kyukie yeh synch thi hai aur rahaige
+
+mtlb ek he thread pai sab execute hoga
+
+execution context -> execute one lone of code at a time
+
+Flow -> jab tak purana statement execute nhi ho gaya hai tab tak nayi statement pai nhi a jaya hai
+.       each operation waits for the last one to complete before executing kyukie thread toh 1 ek hai
+.
+console log - 1
+console log - 2
+call stack _________ memory heep
+
+Database at the end of the day kya hai .... ek file he toh hai jo ap read ya write kar kai a rhai ho
+
+if there are two similar type of things in programming then its not that
+kie yeh hai and wo bura hai sab chiz kie use cases hoti hai and usi pai depend karta hai kie apko yeh use karna hai ya dursa 
+
+Blocking code                   VS           Non Blocking code
+block the flow of program                    does not block execution
+read file sync                               read file async
+
+set timeout and set interval are mostly in asynchronous javascript
+
+web api mai dom milta hai but node enviroment mai dom nhi milta hai
+
+task queue he purai js ko itna fast and asynchronous banata hai
+
+asynchronous code jab ap likhtai hai toh ap chatai kie koe aisa resource ho 
+koe aisa mechanism ho jis andar jab mai kahu kie please yeh wala kam karkai mujhe please mai yad dila dena
+toh yeh sara mechanism karne kai liye a humare pas yeh web api ya node api's availaible hoti hai
+
+set timeout
+suppose ek f nai a kai kaha kie mujhe set timeout call karna hai toh settimeout milaigai kisi bhi api's kai andar
+function ko timeout kar deta hai kie yeh f kko 2 second kai bad execute kar do
+ek hota hai register callback jo humare sarai events ko register kar ta jata hai
+
+queue mtlb kie last sai enter kiya jata and front sai data bahar nikal tai jata hai isi ko queue boltai hai
+mac d kai line kai jaisa burger lijiye bahar jayeyai
+
+stack kya hota hai jo ek he box mai sabsai last mai jata hai ussi ko bahar nikal laitai hai
+
+fetch() jismai promises hoti hai is also like register callback but has a higher priority 
+
+check ss in laptop of time span 4.18.54 for async code explaination -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">stop</button>
+</body>
+
+<!--_______________________________________________________________________________________________________________________________ -->
+
+<script>
+   
+   const sayhitesh = function(){
+    console.log("Hitesh");
+    }
+    setTimeout(sayhitesh, 2000);
+
+    const changetext = function(){
+        document.querySelector("h1").innerHTML = "Best js series"
+    }
+   
+    const changeme = setTimeout(changetext, 2000);
+    document.getElementById('stop').addEventListener('click', function(){
+        clearTimeout(changeme);
+        console.log("STOP");
+        
+    })
+
+
+
+
+//cleartimeout ko chaheyai refrence kie konsai walai timeout ko ap clear stop karna chahtai hai
+   
+
+ /*setTimeout(function(){ //settimeout mtlb kie itni dair ka time do mujhe ussi kai bad mai execute karunga 1 var ek execute karunga
+        console.log("satakshi");
+        },2000)*/
+
+
+//set interval  -> ka mtlb kie mujhe itnai second ka time do iskai bad mai iss kam ko continuosly karta he rahunga agar 2 second hai har 2 second kai bad wo kam execute karta rahaiga
+
+</script>
+</html>
