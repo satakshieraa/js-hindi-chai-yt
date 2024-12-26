@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+
+
+   <script>
+    //js kai andar jitne bhi events hotai hai wo sequentially he run hotai hai
+    //kuch expections hai unhe expextions ka bat karnai ayai hai
+    //js ek sequentially run language hai but kae bar hum in sequentially ko thoda sa ignore karkai bhi jatai hai jaisai asynchronous programming mai
+
+   // document.getElementById('owl').onclick = function(){
+    //    alert('owl cliked')
+    //} ............ outdated method so we will not use it 
+
+    //attachEvent()
+    //jquery - on
+
+
+   // document.getElementById('owl').addEventListener('click', function(){
+     //   alert("owl clicked again")
+    //}) //....................... yeh third parameter false kya hau aur kyu kam mai liye jata hai ................... third parameter false default he hai toh isai likhnai kie jarurat bhi nhi hai
+
+    // we will talk about event object - e wala yad aya
+       
+   // document.getElementById('owl').addEventListener('click',function(e){
+   //    console.log(e);
+   //}, false) ;
+
+   /* document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul");
+        
+    }, false) ;
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl clicked");
+        e.stopPropagation() 
+    }, false) ;
+    
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();    //aur yeh ab bubbling bhi nhi ho rhi hai
+        console.log("google is making christmas dont distrub")
+    }, false)  // example of preventdeafult() where you click something or any site and it wont open */
+
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log(e.target.tagName); //ke kis target sai yeh event occur ho rha hai jaiai img click karnai paic chal rha hai kie photoshop ya owl sai occur ho rha hai
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id); //mtln japan , prayer, upar jo hai bhai wai
+            let removeit = e.target.parentNode;
+            removeit.remove()
+            
+        } // toh yeh upar jo humnai kiya hai usmai img remove hai ho alag and li ho rha hai alag
+          //if condition laganai sai pehlai agar li pai click kiya toh pura ka pura img he remove ho ja rha tha ok samjhi easy hai baby chillllll just chillllll and you can do it 
+        
+        
+        
+        //parentnode - kae bar kya hota hai apko target toh mil gaya hai but ap uskai parent ko select karna chahtai hai jaisai kie image thodai he na select karna hai humai toh pura li tag kie select karna hai warna img toh gayab ho jayegie and li ka bulletpoint wo dot wahi pai reh jayaiha
+        // let removeit = e.target.parentNode; //event ka target sai karkai parentnode mila toh usmai mila humai li and li agar sirf mai bolu kie removechild toh wo img hata daiga
+        // removeit.remove() //below method also dot he same work as this but ut is a new method and easy one 
+      // removeit.parentNode.removeChild(removeit) //yaha pai mainai bola kie removeit ka parentnode do tab usnai mujhe li sai ul diya aur fir us ul ko bola removechild , konsa child remove karo ji removeit kai andar aya hai
+    // but yaha pai agar kisi li pai click kar diya toh pura ka pura unorderd list he gayab ho ja rhi hai kya karai 
+    //jaisai humne parent node dekha wasai he tagname jasai img pai click karo img written aya and agar li pai click kara toh li written aya
+
+          })
+   
+    /*event propogation ka sara ka sara game kya hai bubbling ka
+    bubble kya hota hai nichai sai upar jata hai toh apnai sabsai pehlai inner element pai click kara jo kie
+    images tha uskai bad ui uskai bad script track kar rhi hai bare elements ko  inside sai outside toh wo hota hai
+    event propogation aur usko hum boltai hai bubbling yaha pai upar walai 2 code ka explaination 
+    false ko kehtai hai bubbling jo jata hai bottom sai top mai 
+    true kya hai caputring jo jata hai top sai bottom mai*/
+
+    //e.stopPropagation() - explainaton
+    /* कई
+
+      बार क्या होता है की बबलिंग नहीं चाहते की इस तरह से इवेंट और और पास हो जाए क्योंकि हो सकता है रिएक्ट है जिसमें
+
+      भी आप पढ़ रहे हैं तो उसमें आपने उसे जो टॉप एलिमेंट है उसे पे भी कोई स्क्रिप्ट लगा रखी है की मुझे इसको भी ट्रैक करना
+
+       है तो आप चाहते हैं इनर एलिमेंट अलग र जाए उसका बबलिंग ना हो और जो आउटर एलिमेंट है
+
+      वो अलग र जाए तो वहीं पे आपका कम आता है e.stopPropagation() event  कैप्चर किया है तो यहां पे एक मेथड होता है इसके पास जो
+
+      बोलना है स्टॉप प्रोपेगेशन इसको अगर आप एग्जीक्यूट कर देंगे जैसे अपना प्रीवेंट डिफॉल्ट होता है वैसे आपका स्टॉप
+
+      प्रोपेगेशन भी होता toh yeh jasai he apnai likha and owl pai jaisai he click kara toh apka event bubble hokai upar kai element pai nhi jayaiga */
+ 
+      /* prevent default ka exapmle 
+      upar walai mai example hai google ka jo html mai likh hai last mai check karo
+      toh google pai kartai he wo muhje google kai website pai lai jata hai and mai nhi chata hu kie aisai ho
+
+
+
+
+    //yeh dono code humnai exactly same likhai hai but yeh jo id's hai wo different kar rhai hai
+    
+
+    /*TYPE -
+    kae bar keyborad and mouse kai eventtypes hotai hai
+    
+    TIMESPAN -
+    time and date activites kasai and kya change kartai hai interview mai kafi kam ayaigie
+    
+    DEFAULTPREVENTED - 
+    default jo behaviour hota hai kisi bbhi chiz ka wo app change kar sktai ho
+    mostly seen while filling the form while submitting we tell event to defaultprevent kardo taki wo submit na hojayai
+    yaha tak kie jo anchor tags hai uska bhi kam kiya hotai hai kie jab click kara aur navigate karwaya toh wo navigation bhi hum rok saktai hai
+    toh jo bhi default behaviour hai kisi bhi tag wo ap rok sktai ho iskai through
+
+    TARGET hoaya toElement hogaya padhna yeh sab kai bari mai
+
+    srcElement - bhut imp hai padhna iskai barai mai
+
+    currentTarget bhi hota hai
+
+    interview peespective sai jo atai hai wo hai client ki position related 
+    jaisai clientX , clientY, screenX, screenY padhna yeh sab kai barai mai
+
+    altkey, ctrlkey shiftkey -
+    yeh jitni bhi keyboards kie keys hoti hai in sabko bhi pehchan kai liye kuch special jo special keys hai
+    un sabka direct access mil jata hai kie kya wo press hue hai ya nhi hue hai wo bhi events kai through he dekhtai hai
+
+    keyCode -
+    कोड भी मिल जाता है तो कीबोर्ड ऐसी बातें थोड़ा सा रिसर्च करके पढ़ना पड़ेगा की A key का कीबोर्ड क्या है B key का कीबोर्ड
+    3:40:29
+    क्या है उसके बेसिस पे आप पूरा देख सकते हो और इसी के बेसिस पे कुछ प्रोजेक्ट्स आप बना सकते हो जैसे की आपको करना है की
+
+    कीबोर्ड स्पीड किसकी कितनी है क्या एक टैक्स दिया gaya यूजर ko usnai कीबोर्ड like type kiya किया तो सही से टाइप कर रहा है ya nhi
+    toh waha pai yeh basics js kai kam atai hai
+
+    EVENT PROPOGATION
+    एक होता है इवेंट बबली और एक होता है इवेंट कैपचरिंग मार्केट में ज्यादातर जो
+    3:41:38
+    उसे होता है जो प्रोजेक्ट होता है वो होता है डिफॉल्ट से जो की false से आपका और जिसको हम बोलते हैं इवेंट बबली लेकिन कुछ
+
+    सिनेरियोस में आपको इवेंट कैपचरिंग का भी use करना पद सकता है तो उसे केसेस के लिए मैं आपको यहां पे दो एग्जांपल करके दिखता hu
+    kie kaisai event propogation hota hai and kasai usai rok bhi saktai ho
+
+    /*pointer events console browser pai appear karta hai toh pinterevent ek object hai
+    aur iss object kai andar milti hai bhut sari chizai bubbles button , cancelbutton and more values like this
+    events bhut tarike kai miltai hai mostly kis tarike kai events miltai hai, -  broswer events and enviroment kai event 
+    enviroment kai events jaisai mouse na kaha click kara, konsi position thi mouse ki
+
+    interview mai bara basic sa question milta hai kie ek application bana do jaha pai user jis time pai bhi user iss image pa ya is body click karai toh uska timespan  mujhe  mil jayai toh log
+    paraisan ho jatai hai kie yeh react mai kaisai karai but yeh react mai karna he nhi hai basic js ka question hai ek line ka code tha upar walai kie tarah 
+    jismai ek alert dal diya img pai and usmai addeventlistner la e function mai dal diya fir browser kai console mai ja kai dekh liya
+
+    like this question also 
+    ek application banao jaha pai ek div ho aur div pai jab mai jaha pai bhi click karu waha pai ek circle create ho jayai
+    toh jab events kai andar apko uski widht mil rhi hai x and y positon mil rhi hai client kie toh uspai jaha pai bhi click karao waha pai uski location mil gayie
+    uss location pai ek naya event create kar do aur ek browser element tag create kar do div wagarh circle sqaure jo bhi usnai kaha hai*/
+
+
+    // ab naya example kie upar wo li mai photos hai usmai click karu toh wo gayab ho jayai*/
+
+
+</script>
+</html>
