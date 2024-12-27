@@ -1,0 +1,61 @@
+<!-- API is a talking language bewtween two systems now these systems can be backenend and 
+ frontend also or between java and js also or between ruby and php also-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+// yaha pai kya hota hai kie xml kie jo request bheji jati hai AJAX request jisko boltai hai
+//isko hum jada kam mai nhi lainai walai hai but just for knowledge
+//ismai pehlai hum ek object banatai hai xmlh karke
+
+/*XMLHttpRequest-> yeh apnai ap mai ek method hai ismai sari states wagarg hoti hai and isi kai thorugh ap 
+apna data request send kar sktai hai and receive bhi kar sktai hai*/
+
+//jab bhi apkai pass response ata hai url sai toh wo string mai ata hai most of the time string mai ata hai
+//JSON.parse ... parse kya karta hai kie string ko json mai convert kar deta hai yeh bhi json.parse data type he hai
+
+// YEH THI CHARCHA HUMARI XMTLHttpRequest kie kie data hum aisai bhi lai bhi saktai fetch kie bhi bat karta hai modern tarika hai
+//timespan at 5 hour in 10 hour video 2nd part
+
+
+const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+const xhr = new XMLHttpRequest();
+xhr.open('GET', requestUrl) //ab open ko call karna parta hai toh open apnai ap mai call nhi hota hai usai call karna parta hai
+xhr.onreadystatechange = function (){
+    console.log(xhr.readyState);  // ab continuoslly humari jaisai he state jaisai  he change ho rhi hai toh humara yeh function execute ho rha hai bar bar .....jaisai state change hoti hai har bar yeh function execute hota hai 
+    if(xhr.readyState === 4 ){
+        const data = JSON.parse(this.responseText)
+        console.log(typeof data);
+        console.log(data.followers); //this mtlb hum current context kie bat kar rhai hai toh jab current context kie bat kar rhai hotai hai toh usmai this lgagaya jata hai
+       // console.log(data); //data aisai bhi aya hai but object bhi form mai aya 
+       // console.log(this.responseText); data aisai bhi aya hai
+        
+        
+    }
+
+}     
+
+// it continuosly monitor things ..... yeh actually mai ek function laita hai kie jab state change ho toh mujhe kya karna hai
+//console.log(xhr.readyState);//abhi yaha pai 1 print ho rha hai kyukie humnai isko bola he nhi hai kie continuosly track karna hai ab bolaigai
+xhr.send() //jab send likhtai hai tab actually mai wo call hota hai
+
+//console.log aur document.getelementbyId aur bhi aisai he core js ka part nhi hai
+//core js kai andar basic kuch airthmetic operations , functions, loops wagarh yeh sab hota hai
+// console.log hai kya ek debbuging tool hai ek debuger hai browser ka dev tool hai developer tool
+//yeh runtime jo hai js ka js wo inject karta hai
+
+//nodejs bhi ek implitation he hai v8 engine ka
+//bhut sarai engines hai jo js ko run kartai hai usmai sai hai yeh ek v8 engine 
+// toh yeh v8 humai dubugging tool kuch api's access provide karta hai kie ap actually mai kam kar pao
+
+
+</script>
+</body>
+</html>
