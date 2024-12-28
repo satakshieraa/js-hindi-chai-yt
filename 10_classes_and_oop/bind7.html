@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REACT</title>
+</head>
+<body>
+    <button>Button clicked</button>
+</body>
+
+<script>
+    class React {
+        constructor(parameters) {
+            this.library = "react"        // yeh variables declare kiya hai
+            this.server = "https://localhost:300"
+
+            //requirement kya hai
+            //kie jaisai he yeh page load ho apka ek object create hojayai react ka
+        
+            document.querySelector('button')
+            .addEventListener('click',this.handleclick.bind(this))
+        }
+
+            handleclick(){
+                console.log("button clicked");
+                console.log(this); //sirf this hai toh this mai pura constructor a gaya and if this.library karo ya server toh bas wahi ayaiga 
+
+        // jab humai button ka toh refrence mil jata hai but but uskai under jo method declare kiya hai uska refrene nhi milta hai
+        //toh ek method ata hai BIND 
+        // uss bind ko actually mai bind karna hai yeh keyword bind he apnai ap mai bata rha hai kie isko attach karo apne sath
+                
+            
+        
+        }
+    }
+
+    //jaisai he mainai new create kara wasai constructor mujhe refrence daiga  button wagarah ka
+
+    const app = new React     // yeh ek object create hua
+    //ab mai chata hu kie jaisai he yeh kam hojayai wasai he mujhe button ka refrence mil jayai aur ek method ho jo kie ho
+    //handle click ka jo kie kahe form click hogaya hai ya form submit ho gaya hai ya console a jayai
+
+
+</script>
+</html>

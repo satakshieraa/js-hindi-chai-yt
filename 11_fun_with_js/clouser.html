@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clouser aur chai</title>
+</head>
+<body  style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    
+</body>
+</html>
+
+<script>
+
+function init() {
+
+  let name = "Mozilla";                        // name is a local variable created by init
+  
+  function displayName() {
+//                                             //  displayName() is the inner function, that forms a closure
+    console.log(name);                         // use variable declared in the parent function ...... wo upar name = mozilla jo hai na 
+  }
+
+  displayName();
+
+}
+
+init();
+
+// upar ka mamla yeh hai kie apnai ek fn init nam sai declare kara
+//usake andar apnai ek name declare kara mozilla ap chahai toh firefox declare kareyai
+// abhi iskai andar humnai ek fn firsai declare kara display name 
+//ab display name kya kar rha hai name ko print kar rha hai
+// lekin name kaha pai iss displayname fn kai toh scope kai bahar hai
+//ab isi displayname fn ka defination declare kara 
+//and usko run bhi kar diya as displayname() on line no. 19
+//aur fir humnai main fn call kar diya init() line no 28
+
+
+// angrezi bhasa mai explain karai toh mdn sai
+
+/* 
+
+init() creates a local variable called name and a function called displayName(). The displayName() function is an inner function that is defined
+ inside init() and is available only within the body of the init() function. Note that the displayName() function has no local variables of its own. 
+ However, since inner functions have access to the variables of outer scopes, displayName() can access the variable name declared in the parent function, init().
+
+*/    
+
+//_________________________________________________________________________________________________________________________________________
+
+
+ // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret); //acces nhi hai
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret); //access nhi hai
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+    // baccha bap sai mang sakta hai 
+    // but bap bacha sai nhi mang sakta hai
+    // aur bhai bhai ek dusre ko property share nhi kartai hai 
+
+    //_______________________________________________________________________________________________________________________________________
+    
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName; ..... yaha pai apnai uss fn ka refrence he pass kar diya hai as a return 
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+/* clouser ka mltb samajh mai aya kie jab ap ek pura ka pura fn he return 
+toh sirf fn he return nhi hota hai uska pura ka pura scope he return hota hai, pura lexical scope return hota hai
+
+/* iss clouser ka ham ek practical scenario dekhnai ja rhai hai dusre script mai
+*/
+</script>
+
+<script>
+
+// document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        // abhi yaha pai humne 2 button mai color laga diya but 
+        // agar 500 button hotai toh , hnji yahi pai humara core princial ata hai dont repeat yourself
+
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+
+        // fn aur fn kai refrence mai antar hai
+        // fn kai refrence ka matlab hai mai apko defination dai daita hu, bas itna he kar rha hu , khatam tata bybye hogaya 
+        // fn akelai na thodai bahar jata hai pura uska lexical scope jata hai
+</script>
