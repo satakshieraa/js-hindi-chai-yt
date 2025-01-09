@@ -22,3 +22,5 @@ function capitalizefirstword (str) {
 }
 
 console.log(capitalizefirstword("hello world"));
+
+// approach is diff
