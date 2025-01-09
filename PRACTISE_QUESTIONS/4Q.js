@@ -19,3 +19,4 @@ checknum(41) // () <- in here put values like 22 or 14.2 or 16 to see if a integ
 // Number.isInteger() to check whether an integer or not
 // this fn can be used or isinteger can be used also
 
+//checknum
