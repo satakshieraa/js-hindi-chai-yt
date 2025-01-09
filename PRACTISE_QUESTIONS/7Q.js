@@ -23,3 +23,4 @@ console.log(stringpalchecker("poop")); // true
 console.log(stringpalchecker("loop")); // false 
 
 
+//string check
