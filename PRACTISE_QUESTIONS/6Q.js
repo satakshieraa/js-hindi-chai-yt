@@ -67,7 +67,7 @@ function reversekaro(num){
     
 console.log(reversekaro(2255)); // output 5522
 
-
+// reverse question
 
 
 
