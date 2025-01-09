@@ -9,3 +9,5 @@ console.log(alphabeticalordercheck("apple"));  // aelpp
 console.log(alphabeticalordercheck("mango"));  // agmno
 
 // sort() directly puts in alphabetical order 
+
+// sort
