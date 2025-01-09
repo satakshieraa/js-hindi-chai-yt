@@ -16,3 +16,4 @@ console.log(result.join("  "));
 
 // map ka andar jo bhi chiz return hoti hai wo new array kai andar save hoti rehti hai
 
+//map

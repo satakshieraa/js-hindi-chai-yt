@@ -9,4 +9,5 @@ console.log(checkarray([]));
 console.log(checkarray({}));
 
 // Array.isArray ()
-// iskai andar () upar mai kuch bhi denai sai batayaiga ka kie particular chiz array ya nhi 
+// iskai andar () upar mai kuch bhi denai sai batayaiga ka kie particular chiz array ya nhi
+//ch
