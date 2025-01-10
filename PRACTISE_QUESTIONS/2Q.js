@@ -11,4 +11,3 @@ console.log(checkarray({}));
 // Array.isArray ()
 // iskai andar () upar mai kuch bhi denai sai batayaiga ka kie particular chiz array ya nhi
 //checkarray
-// using  cursor for the first 
